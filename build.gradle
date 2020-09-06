@@ -9,6 +9,7 @@ buildscript {
         lifecycle_version = '2.2.0'
         androidx_hilt_version = '1.0.0-alpha02'
         glide_version = '4.11.0'
+        pagingVersion = '3.0.0-alpha06'
     }
     repositories {
         google()
