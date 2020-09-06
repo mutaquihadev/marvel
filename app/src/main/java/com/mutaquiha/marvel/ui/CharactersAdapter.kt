@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.commons.extensions.getImageUrl
+
 import com.mutaquiha.marvel.commons.extensions.load
+import com.mutaquiha.marvel.domain.entity.Character
 
 
 class CharactersAdapter :
-    PagingDataAdapter<com.mutaquiha.marvel.domain.entity.Character, CharactersAdapter.CharacterHolder>(
+    PagingDataAdapter<Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
     ) {
 
@@ -39,17 +41,17 @@ class CharactersAdapter :
 }
 
 class CharacterDiffCallback :
-    DiffUtil.ItemCallback<com.mutaquiha.marvel.domain.entity.Character>() {
+    DiffUtil.ItemCallback<Character>() {
     override fun areItemsTheSame(
-        old: com.mutaquiha.marvel.domain.entity.Character,
-        aNew: com.mutaquiha.marvel.domain.entity.Character
+        old: Character,
+        aNew: Character
     ): Boolean {
         return old.id == aNew.id
     }
 
     override fun areContentsTheSame(
-        old: com.mutaquiha.marvel.domain.entity.Character,
-        aNew: com.mutaquiha.marvel.domain.entity.Character
+        old: Character,
+        aNew: Character
     ): Boolean {
         return old == aNew
     }
