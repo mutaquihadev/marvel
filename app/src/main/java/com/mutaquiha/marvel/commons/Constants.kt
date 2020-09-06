@@ -1,5 +1,9 @@
 package com.mutaquiha.marvel.commons
 
+object ImageSize {
+    const val STANDARD_MEDIUM = "standard_medium"
+}
+
 object Constants {
     const val BASE_URL = "https://gateway.marvel.com/v1/public/"
 
