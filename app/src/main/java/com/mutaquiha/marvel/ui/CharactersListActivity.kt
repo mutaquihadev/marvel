@@ -31,19 +31,14 @@ class CharactersListActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
 
+        collectCharacters()
+    }
+
+    private fun collectCharacters() {
         lifecycleScope.launch {
             viewModel.getCharacters().collectLatest {
                 adapter.submitData(it)
             }
         }
-
-        lifecycleScope.launch {
-            @OptIn(ExperimentalPagingApi::class)
-            adapter.dataRefreshFlow.collect {
-                recyclerView.scrollToPosition(0)
-            }
-        }
     }
-
-
 }
