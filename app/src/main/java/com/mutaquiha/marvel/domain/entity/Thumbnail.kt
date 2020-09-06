@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.domain
+package com.mutaquiha.marvel.domain.entity
 
 data class Thumbnail(
     val path: String,

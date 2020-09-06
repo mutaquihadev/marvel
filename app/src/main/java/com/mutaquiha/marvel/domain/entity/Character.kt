@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.domain
+package com.mutaquiha.marvel.domain.entity
 
 data class Character(
     val id: Int,
