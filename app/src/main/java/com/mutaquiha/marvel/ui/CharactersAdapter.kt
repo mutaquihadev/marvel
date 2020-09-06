@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.commons.extensions.getImageUrl
@@ -14,7 +14,7 @@ import com.mutaquiha.marvel.commons.extensions.load
 
 
 class CharactersAdapter :
-    ListAdapter<com.mutaquiha.marvel.domain.entity.Character, CharactersAdapter.CharacterHolder>(
+    PagingDataAdapter<com.mutaquiha.marvel.domain.entity.Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
     ) {
 
@@ -31,9 +31,10 @@ class CharactersAdapter :
 
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val character = getItem(position)
-
-        holder.name.text = character.name
-        holder.imageView.load(character.getImageUrl())
+        character?.let {
+            holder.name.text = character.name
+            holder.imageView.load(character.getImageUrl())
+        }
     }
 }
 

@@ -1,14 +1,16 @@
 package com.mutaquiha.marvel.ui
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
-import com.mutaquiha.marvel.domain.NetworkViewState
-import com.mutaquiha.marvel.domain.entity.Character
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CharactersListActivity : AppCompatActivity() {
@@ -29,15 +31,19 @@ class CharactersListActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
 
-        viewModel.viewState.observe(this, this::handleViewState)
+        lifecycleScope.launch {
+            viewModel.getCharacters().collectLatest {
+                adapter.submitData(it)
+            }
+        }
 
-        viewModel.getCharacters()
+        lifecycleScope.launch {
+            @OptIn(ExperimentalPagingApi::class)
+            adapter.dataRefreshFlow.collect {
+                recyclerView.scrollToPosition(0)
+            }
+        }
     }
 
-    private fun handleViewState(viewState: NetworkViewState<List<Character>>) = when (viewState) {
-        is NetworkViewState.Success -> adapter.submitList(viewState.result)
-        is NetworkViewState.Error -> Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
-        is NetworkViewState.Loading -> Toast.makeText(this, "handle loading", Toast.LENGTH_SHORT)
-            .show()
-    }
+
 }

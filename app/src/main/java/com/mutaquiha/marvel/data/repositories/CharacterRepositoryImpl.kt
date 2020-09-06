@@ -1,10 +1,13 @@
 package com.mutaquiha.marvel.data.repositories
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.mutaquiha.marvel.data.MarvelApi
 import com.mutaquiha.marvel.data.mapper.CharacterMapper
+import com.mutaquiha.marvel.data.paging.CharactersPagingSource
 import com.mutaquiha.marvel.domain.entity.Character
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class CharacterRepositoryImpl
@@ -13,7 +16,17 @@ constructor(
     private val marvelApi: MarvelApi,
     private val mapper: CharacterMapper
 ) : CharacterRepository {
-    override fun getCharacters(): Flow<List<Character>> = flow {
-        emit(mapper.transform(marvelApi.getCharacters()))
+    override fun getCharacters(): Flow<PagingData<Character>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = NETWORK_PAGE_SIZE,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { CharactersPagingSource(marvelApi, mapper) }
+        ).flow
+    }
+
+    companion object {
+        private const val NETWORK_PAGE_SIZE = 20
     }
 }
