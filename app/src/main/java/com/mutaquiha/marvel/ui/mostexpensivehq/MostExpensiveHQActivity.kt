@@ -17,8 +17,8 @@ class MostExpensiveHQActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_most_expensive_h_q)
 
-        viewModel.mostExpensiveComic.observe(this, Observer {
-            Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
+        viewModel.pages.observe(this, {
+            Toast.makeText(this, "There are $it pages ", Toast.LENGTH_SHORT).show()
         })
     }
 }

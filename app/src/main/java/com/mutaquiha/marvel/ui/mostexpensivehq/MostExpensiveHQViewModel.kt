@@ -7,6 +7,7 @@ import com.mutaquiha.marvel.commons.Constants
 import com.mutaquiha.marvel.data.repositories.ComicsRepository
 import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.domain.entity.Comic
+import com.mutaquiha.marvel.domain.entity.FindMostExpensiveHQHelper
 import kotlinx.coroutines.launch
 
 class MostExpensiveHQViewModel @ViewModelInject constructor(
@@ -22,16 +23,21 @@ class MostExpensiveHQViewModel @ViewModelInject constructor(
         get() = _mostExpensiveComic
     private val _mostExpensiveComic = MutableLiveData<Comic>()
 
+    val pages = MutableLiveData<Int>()
+
     init {
-        getComics()
+        character?.let {
+            getComics(it)
+        }
     }
 
-    private fun getComics() {
-        character?.let {
-            viewModelScope.launch {
-                val response = repository.getComics(characterId = it.id)
-                _mostExpensiveComic.postValue(response[0])
-            }
+    private fun getComics(character: Character) {
+        val totalPages = FindMostExpensiveHQHelper.getNumberOfPages(character.availableComicsCount)
+        pages.postValue(totalPages)
+
+        viewModelScope.launch {
+            val response = repository.getComics(characterId = character.id)
+            _mostExpensiveComic.postValue(response[0])
         }
     }
 }

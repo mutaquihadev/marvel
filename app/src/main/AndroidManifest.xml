@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MostExpensiveHQActivity"/>
-        <activity android:name=".ui.CharacterDetailsActivity" />
+        <activity android:name=".ui.mostexpensivehq.MostExpensiveHQActivity"/>
+        <activity android:name=".ui.CharacterDetailsActivity"/>
         <activity android:name=".ui.characterlist.CharactersListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
