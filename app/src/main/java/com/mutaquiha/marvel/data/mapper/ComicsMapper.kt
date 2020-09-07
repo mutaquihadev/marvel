@@ -7,17 +7,13 @@ import com.mutaquiha.marvel.domain.entity.Thumbnail
 class ComicsMapper : BaseMapper<DTOComic, Comic>() {
     override fun transform(entity: DTOComic): Comic {
 
-        var greaterPrice = 0.0
-        entity.prices.forEach {
-            if (it.price > greaterPrice) {
-                greaterPrice = it.price
-            }
-        }
+        val price = entity.prices.map { it.price }.maxOrNull()
 
         return Comic(
             entity.title,
-            greaterPrice,
+            price?: 0.0,
             entity.description,
-            Thumbnail(entity.thumbnail.path, entity.thumbnail.extension))
+            Thumbnail(entity.thumbnail.path, entity.thumbnail.extension)
+        )
     }
 }
