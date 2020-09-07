@@ -4,7 +4,6 @@ const val MAX_ALLOWED_OFFSET = 100
 
 class FindMostExpensiveHQHelper {
 
-
     companion object  {
         fun getNumberOfPages(availableComicsCount: Int): Int {
             val reminder = availableComicsCount % MAX_ALLOWED_OFFSET

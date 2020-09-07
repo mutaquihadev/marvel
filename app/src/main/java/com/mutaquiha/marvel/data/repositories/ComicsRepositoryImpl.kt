@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ComicsRepositoryImpl
 @Inject
 constructor(private val api: MarvelApi, private val mapper: ComicsMapper) : ComicsRepository {
-    override suspend fun getComics(characterId: Int): List<Comic> {
-        return api.getComics(characterId = characterId).asDomainModule(mapper)
+    override suspend fun getComics(characterId: Int, offset: Int): List<Comic> {
+        return api.getComics(characterId = characterId, offset = offset).asDomainModule(mapper)
     }
 }
