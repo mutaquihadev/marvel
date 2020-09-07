@@ -24,6 +24,10 @@ class CharacterDetailsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvName)
     }
 
+    private val tvMostExpensiveHQ by lazy {
+        findViewById<TextView>(R.id.tvMostExpensiveHQ)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_details)
@@ -41,6 +45,14 @@ class CharacterDetailsActivity : AppCompatActivity() {
                 tvDescription.visibility = View.VISIBLE
                 tvDescription.text = character.description
             }
+        }
+
+        if(character.availableComicsCount > 0) {
+            tvMostExpensiveHQ.isEnabled = true
+            tvMostExpensiveHQ.text = getString(R.string.see_most_expensive_hq)
+        } else {
+            tvMostExpensiveHQ.isEnabled = false
+            tvMostExpensiveHQ.text = getString(R.string.hq_unavailable)
         }
     }
 

@@ -2,4 +2,6 @@
     <string name="app_name">marvel</string>
     <string name="error_while_opening_character_details">Erro ao abrir detalhes de usuário, tente novamente!</string>
     <string name="retry">Retry</string>
+    <string name="see_most_expensive_hq">Ver HQ mais cara</string>
+    <string name="hq_unavailable">HQs indisponíveis</string>
 </resources>
