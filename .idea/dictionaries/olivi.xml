@@ -2,6 +2,7 @@
   <dictionary name="olivi">
     <words>
       <w>apikey</w>
+      <w>characterlist</w>
       <w>gson</w>
     </words>
   </dictionary>

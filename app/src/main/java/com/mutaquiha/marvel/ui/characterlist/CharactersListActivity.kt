@@ -5,9 +5,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
-import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.commons.Constants.KEY_CHARACTER
+import com.mutaquiha.marvel.databinding.ActivityCharactersListBinding
 import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.ui.CharacterDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,22 +17,29 @@ import kotlinx.coroutines.launch
 class CharactersListActivity : AppCompatActivity() {
 
     private val viewModel: CharactersListViewModel by viewModels()
+    private lateinit var binding: ActivityCharactersListBinding
 
     private val adapter by lazy {
         CharactersAdapter(CharacterClickListener(this::openCharacterDetails))
     }
 
-    private val recyclerView by lazy {
-        findViewById<RecyclerView>(R.id.recyclerView)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_characters_list)
 
-        recyclerView.adapter = adapter
+        binding = ActivityCharactersListBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        initAdapter()
 
         collectCharacters()
+    }
+
+    private fun initAdapter() {
+        binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = CharacterLoadStateAdapter { adapter.retry() },
+            footer = CharacterLoadStateAdapter { adapter.retry() }
+        )
     }
 
     private fun collectCharacters() {
