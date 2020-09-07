@@ -1,18 +1,16 @@
-package com.mutaquiha.marvel.ui
+package com.mutaquiha.marvel.ui.characterlist
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.ExperimentalPagingApi
 import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.commons.Constants.KEY_CHARACTER
 import com.mutaquiha.marvel.domain.entity.Character
+import com.mutaquiha.marvel.ui.CharacterDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

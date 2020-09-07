@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.ui
+package com.mutaquiha.marvel.ui.characterlist
 
 import android.view.LayoutInflater
 import android.view.View

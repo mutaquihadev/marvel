@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.ui
+package com.mutaquiha.marvel.ui.characterlist
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
