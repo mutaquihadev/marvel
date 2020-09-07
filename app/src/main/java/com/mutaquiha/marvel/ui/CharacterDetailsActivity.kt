@@ -1,5 +1,6 @@
 package com.mutaquiha.marvel.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -50,6 +51,7 @@ class CharacterDetailsActivity : AppCompatActivity() {
         if(character.availableComicsCount > 0) {
             tvMostExpensiveHQ.isEnabled = true
             tvMostExpensiveHQ.text = getString(R.string.see_most_expensive_hq)
+            tvMostExpensiveHQ.setOnClickListener { openCharacterDetails(character) }
         } else {
             tvMostExpensiveHQ.isEnabled = false
             tvMostExpensiveHQ.text = getString(R.string.hq_unavailable)
@@ -64,5 +66,11 @@ class CharacterDetailsActivity : AppCompatActivity() {
         ).show()
 
         finish()
+    }
+
+    private fun openCharacterDetails(character: Character) {
+        val intent = Intent(this, MostExpensiveHQActivity::class.java)
+        intent.putExtra(KEY_CHARACTER, character)
+        startActivity(intent)
     }
 }
