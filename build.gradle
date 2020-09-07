@@ -10,7 +10,7 @@ buildscript {
         androidx_hilt_version = '1.0.0-alpha02'
         glide_version = '4.11.0'
         pagingVersion = '3.0.0-alpha06'
-        materialVersion = '1.1.0'
+        materialVersion = '1.2.1'
     }
     repositories {
         google()
