@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.mutaquiha.marvel.R
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,10 +17,8 @@ class MostExpensiveHQActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_most_expensive_h_q)
 
-        viewModel.comics.observe(this, {
-
+        viewModel.mostExpensiveComic.observe(this, Observer {
+            Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
         })
-
-        viewModel.getComics()
     }
 }

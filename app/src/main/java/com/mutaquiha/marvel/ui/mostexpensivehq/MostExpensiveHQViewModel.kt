@@ -18,13 +18,19 @@ class MostExpensiveHQViewModel @ViewModelInject constructor(
         savedStateHandle.get<Character>(Constants.KEY_CHARACTER)
     }
 
-    val comics: MutableLiveData<List<Comic>> = MutableLiveData()
+    init {
+        getComics()
+    }
 
-    fun getComics() {
+    val mostExpensiveComic: LiveData<Comic>
+        get() = _mostExpensiveComic
+    private val _mostExpensiveComic = MutableLiveData<Comic>()
+
+    private fun getComics() {
         character?.let {
             viewModelScope.launch {
                 val response = repository.getComics(characterId = it.id)
-                comics.postValue(response)
+                _mostExpensiveComic.postValue(response[0])
             }
         }
     }
