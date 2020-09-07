@@ -36,7 +36,10 @@ class CharactersListActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        binding.recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
+            header = CharacterLoadStateAdapter { adapter.retry() },
+            footer = CharacterLoadStateAdapter { adapter.retry() }
+        )
     }
 
     private fun collectCharacters() {
