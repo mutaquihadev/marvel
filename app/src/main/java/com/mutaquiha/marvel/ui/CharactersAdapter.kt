@@ -15,7 +15,7 @@ import com.mutaquiha.marvel.commons.extensions.load
 import com.mutaquiha.marvel.domain.entity.Character
 
 
-class CharactersAdapter :
+class CharactersAdapter(private val clickListener: CharacterClickListener) :
     PagingDataAdapter<Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
     ) {
@@ -34,6 +34,7 @@ class CharactersAdapter :
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val character = getItem(position)
         character?.let {
+            holder.itemView.setOnClickListener {clickListener.onClick(character)}
             holder.name.text = character.name
             holder.imageView.load(character.getImageUrl())
         }
@@ -55,4 +56,8 @@ class CharacterDiffCallback :
     ): Boolean {
         return old == aNew
     }
+}
+
+class CharacterClickListener(val clickListener: (character: Character) -> Unit) {
+    fun onClick(character: Character) = clickListener(character)
 }
