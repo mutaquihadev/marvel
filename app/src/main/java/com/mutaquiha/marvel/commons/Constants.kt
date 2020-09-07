@@ -2,6 +2,7 @@ package com.mutaquiha.marvel.commons
 
 object ImageSize {
     const val STANDARD_MEDIUM = "standard_medium"
+    const val LANDSCAPE_LARGE = "landscape_large"
 }
 
 object Constants {
