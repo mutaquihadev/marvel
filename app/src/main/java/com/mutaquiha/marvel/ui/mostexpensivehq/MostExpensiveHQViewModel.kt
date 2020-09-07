@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.ui.mostexpensivehq.viewmodel
+package com.mutaquiha.marvel.ui.mostexpensivehq
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
