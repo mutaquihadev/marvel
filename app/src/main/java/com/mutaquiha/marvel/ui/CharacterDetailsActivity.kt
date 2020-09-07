@@ -33,7 +33,6 @@ class CharacterDetailsActivity : AppCompatActivity() {
         character?.let { handleSuccess(it) } ?: run { handleError() }
     }
 
-
     private fun handleSuccess(character: Character) {
         imCharacter.load(character.getImageUrl(ImageSize.LANDSCAPE_LARGE))
         tvName.text = character.name
