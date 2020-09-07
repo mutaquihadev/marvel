@@ -4,9 +4,9 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.mutaquiha.marvel.commons.Constants
-import com.mutaquiha.marvel.data.dto.comics.ComicResponse
 import com.mutaquiha.marvel.data.repositories.ComicsRepository
 import com.mutaquiha.marvel.domain.entity.Character
+import com.mutaquiha.marvel.domain.entity.Comic
 import kotlinx.coroutines.launch
 
 class MostExpensiveHQViewModel @ViewModelInject constructor(
@@ -18,7 +18,7 @@ class MostExpensiveHQViewModel @ViewModelInject constructor(
         savedStateHandle.get<Character>(Constants.KEY_CHARACTER)
     }
 
-    val comics: MutableLiveData<ComicResponse> = MutableLiveData()
+    val comics: MutableLiveData<List<Comic>> = MutableLiveData()
 
     fun getComics() {
         character?.let {

@@ -6,6 +6,7 @@ data class DTOComic(
     val id: Int,
     val digitalId: Int,
     val title: String,
+    val description: String,
     val thumbnail: DTOThumbnail,
     val prices: List<Price>
 )

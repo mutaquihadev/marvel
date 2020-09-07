@@ -17,7 +17,7 @@ class MostExpensiveHQActivity : AppCompatActivity() {
         setContentView(R.layout.activity_most_expensive_h_q)
 
         viewModel.comics.observe(this, {
-            Toast.makeText(this, "${it.code} - ${it.comicData.count}", Toast.LENGTH_SHORT).show()
+
         })
 
         viewModel.getComics()
