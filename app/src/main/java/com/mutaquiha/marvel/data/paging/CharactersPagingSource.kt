@@ -2,7 +2,7 @@ package com.mutaquiha.marvel.data.paging
 
 import androidx.paging.PagingSource
 import com.mutaquiha.marvel.data.MarvelApi
-import com.mutaquiha.marvel.data.dto.asDomainModel
+import com.mutaquiha.marvel.data.dto.characters.asDomainModel
 import com.mutaquiha.marvel.domain.entity.Character
 import retrofit2.HttpException
 import java.io.IOException
