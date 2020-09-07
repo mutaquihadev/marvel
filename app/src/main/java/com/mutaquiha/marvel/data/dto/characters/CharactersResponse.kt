@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.data.dto
+package com.mutaquiha.marvel.data.dto.characters
 
 import com.google.gson.annotations.SerializedName
 import com.mutaquiha.marvel.domain.entity.Character
@@ -7,11 +7,11 @@ import com.mutaquiha.marvel.domain.entity.Thumbnail
 data class CharactersResponse(
     val code: Int,
     @SerializedName("data")
-    val data: Data
+    val characterData: CharacterData
 )
 
 fun CharactersResponse.asDomainModel(): List<Character> {
-    return data.results.map {
+    return characterData.results.map {
         Character(
             it.id,
             it.name,

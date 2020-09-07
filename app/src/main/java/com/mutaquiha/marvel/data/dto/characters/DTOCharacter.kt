@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.data.dto
+package com.mutaquiha.marvel.data.dto.characters
 
 import com.google.gson.annotations.SerializedName
 

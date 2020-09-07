@@ -1,6 +1,6 @@
-package com.mutaquiha.marvel.data.dto
+package com.mutaquiha.marvel.data.dto.characters
 
-data class Data(
+data class CharacterData(
     val offset: Int,
     val limit: Int,
     val total: Int,
