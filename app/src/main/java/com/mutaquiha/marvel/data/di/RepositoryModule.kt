@@ -2,6 +2,8 @@ package com.mutaquiha.marvel.data.di
 
 import com.mutaquiha.marvel.data.repositories.CharacterRepository
 import com.mutaquiha.marvel.data.repositories.CharacterRepositoryImpl
+import com.mutaquiha.marvel.data.repositories.ComicsRepository
+import com.mutaquiha.marvel.data.repositories.ComicsRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,4 +19,10 @@ abstract class RepositoryModule {
     abstract fun provideCharactersListRepository(
         characterRepositoryImpl: CharacterRepositoryImpl
     ): CharacterRepository
+
+    @Singleton
+    @Binds
+    abstract fun provideComicsRepository(
+        comicsRepositoryImpl: ComicsRepositoryImpl
+    ): ComicsRepository
 }
