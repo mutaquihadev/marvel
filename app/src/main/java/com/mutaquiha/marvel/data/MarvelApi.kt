@@ -11,5 +11,8 @@ interface MarvelApi {
     suspend fun getCharacters(@Query("offset") offset: Int? = 0): CharactersResponse
 
     @GET("characters/{characterId}/comics")
-    suspend fun getComics(@Path("characterId") characterId: Int) : ComicResponse
+    suspend fun getComics(
+        @Path("characterId") characterId: Int,
+        @Query("offset") offset: Int? = 0
+    ): ComicResponse
 }

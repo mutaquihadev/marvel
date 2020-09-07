@@ -10,6 +10,6 @@ class ComicsRepositoryImpl
 @Inject
 constructor(private val api: MarvelApi, private val mapper: ComicsMapper) : ComicsRepository {
     override suspend fun getComics(characterId: Int): List<Comic> {
-        return api.getComics(characterId).asDomainModule(mapper)
+        return api.getComics(characterId = characterId).asDomainModule(mapper)
     }
 }
