@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.ui
+package com.mutaquiha.marvel.ui.characterlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.commons.extensions.getImageUrl
+
 import com.mutaquiha.marvel.commons.extensions.load
+import com.mutaquiha.marvel.domain.entity.Character
 
 
-class CharactersAdapter :
-    PagingDataAdapter<com.mutaquiha.marvel.domain.entity.Character, CharactersAdapter.CharacterHolder>(
+class CharactersAdapter(private val clickListener: CharacterClickListener) :
+    PagingDataAdapter<Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
     ) {
 
@@ -32,6 +34,7 @@ class CharactersAdapter :
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val character = getItem(position)
         character?.let {
+            holder.itemView.setOnClickListener {clickListener.onClick(character)}
             holder.name.text = character.name
             holder.imageView.load(character.getImageUrl())
         }
@@ -39,18 +42,22 @@ class CharactersAdapter :
 }
 
 class CharacterDiffCallback :
-    DiffUtil.ItemCallback<com.mutaquiha.marvel.domain.entity.Character>() {
+    DiffUtil.ItemCallback<Character>() {
     override fun areItemsTheSame(
-        old: com.mutaquiha.marvel.domain.entity.Character,
-        aNew: com.mutaquiha.marvel.domain.entity.Character
+        old: Character,
+        aNew: Character
     ): Boolean {
         return old.id == aNew.id
     }
 
     override fun areContentsTheSame(
-        old: com.mutaquiha.marvel.domain.entity.Character,
-        aNew: com.mutaquiha.marvel.domain.entity.Character
+        old: Character,
+        aNew: Character
     ): Boolean {
         return old == aNew
     }
+}
+
+class CharacterClickListener(val clickListener: (character: Character) -> Unit) {
+    fun onClick(character: Character) = clickListener(character)
 }

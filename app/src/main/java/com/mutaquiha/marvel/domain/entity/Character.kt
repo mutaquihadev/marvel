@@ -1,8 +1,10 @@
 package com.mutaquiha.marvel.domain.entity
 
+import java.io.Serializable
+
 data class Character(
     val id: Int,
     val name: String,
     val description: String,
     val Thumbnail: Thumbnail
-)
+) : Serializable

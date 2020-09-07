@@ -2,6 +2,7 @@ package com.mutaquiha.marvel.commons
 
 object ImageSize {
     const val STANDARD_MEDIUM = "standard_medium"
+    const val LANDSCAPE_LARGE = "landscape_large"
 }
 
 object Constants {
@@ -15,5 +16,7 @@ object Constants {
 
     const val API_KEY = "YOUR_API_KEY"
     const val PRIVATE_KEY = "YOUR_PRIVATE_KEY"
+
+    const val KEY_CHARACTER = "KEY_CHARACTER"
 }
 
