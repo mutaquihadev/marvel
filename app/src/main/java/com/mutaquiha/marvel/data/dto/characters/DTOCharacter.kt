@@ -8,5 +8,5 @@ data class DTOCharacter(
     @SerializedName("thumbnail")
     val DTOThumbnail: DTOThumbnail,
     @SerializedName("comics")
-    val DTOComics: DTOComics
+    val DTOCharacterComics: DTOCharacterComics
 )

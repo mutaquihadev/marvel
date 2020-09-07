@@ -1,6 +1,6 @@
 package com.mutaquiha.marvel.data.dto.characters
 
-data class DTOComics(
+data class DTOCharacterComics(
     val available: Int,
     val returned: Int
 )

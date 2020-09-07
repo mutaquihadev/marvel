@@ -17,7 +17,7 @@ fun CharactersResponse.asDomainModel(): List<Character> {
             it.name,
             it.description,
             Thumbnail(it.DTOThumbnail.path, it.DTOThumbnail.extension),
-            it.DTOComics.available
+            it.DTOCharacterComics.available
         )
     }
 }
