@@ -29,6 +29,7 @@ class CharactersAdapter(private val clickListener: CharacterClickListener) :
     class CharacterHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imCharacterImage)
         val name: TextView = itemView.findViewById(R.id.tvCharacterName)
+        val availableComicsCount: TextView = itemView.findViewById(R.id.tvAvailableComicsCount)
     }
 
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
@@ -37,6 +38,7 @@ class CharactersAdapter(private val clickListener: CharacterClickListener) :
             holder.itemView.setOnClickListener {clickListener.onClick(character)}
             holder.name.text = character.name
             holder.imageView.load(character.getImageUrl())
+            holder.availableComicsCount.text = "${character.availableComicsCount}"
         }
     }
 }
