@@ -1,14 +1,13 @@
 package com.mutaquiha.marvel.domain.entity
 
-const val MAX_ALLOWED_OFFSET = 100
+import com.mutaquiha.marvel.commons.Constants
 
 class FindMostExpensiveHQHelper {
 
-
-    companion object  {
+    companion object {
         fun getNumberOfPages(availableComicsCount: Int): Int {
-            val reminder = availableComicsCount % MAX_ALLOWED_OFFSET
-            val pages =   availableComicsCount / MAX_ALLOWED_OFFSET
+            val reminder = availableComicsCount % Constants.PAGE_SIZE
+            val pages = availableComicsCount / Constants.PAGE_SIZE
             val additionalPage = if (reminder > 0) {
                 1
             } else {
@@ -17,5 +16,17 @@ class FindMostExpensiveHQHelper {
 
             return pages + additionalPage
         }
+
+        fun getTheMostExpensiveComic(comicsList: List<Comic>): Comic {
+            var mostExpensiveComic = comicsList[0]
+            for (comic in comicsList) {
+                if (comic.price > mostExpensiveComic.price) {
+                    mostExpensiveComic = comic
+                }
+            }
+
+            return mostExpensiveComic
+        }
+
     }
 }

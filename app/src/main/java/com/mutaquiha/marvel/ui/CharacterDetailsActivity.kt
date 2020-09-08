@@ -13,6 +13,7 @@ import com.mutaquiha.marvel.commons.ImageSize
 import com.mutaquiha.marvel.commons.extensions.getImageUrl
 import com.mutaquiha.marvel.commons.extensions.load
 import com.mutaquiha.marvel.domain.entity.Character
+import com.mutaquiha.marvel.ui.mostexpensivehq.MostExpensiveHQActivity
 import kotlinx.android.synthetic.main.activity_character_details.*
 
 class CharacterDetailsActivity : AppCompatActivity() {
