@@ -27,6 +27,5 @@ class FindMostExpensiveHQHelper {
 
             return mostExpensiveComic
         }
-
     }
 }

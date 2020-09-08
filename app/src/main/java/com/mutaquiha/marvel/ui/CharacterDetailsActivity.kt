@@ -42,14 +42,14 @@ class CharacterDetailsActivity : AppCompatActivity() {
     private fun handleSuccess(character: Character) {
         imCharacter.load(character.getImageUrl(ImageSize.LANDSCAPE_LARGE))
         tvName.text = character.name
-        character.description.isNotEmpty().let {isNotEmpty ->
-            if(isNotEmpty) {
+        character.description.isNotEmpty().let { isNotEmpty ->
+            if (isNotEmpty) {
                 tvDescription.visibility = View.VISIBLE
                 tvDescription.text = character.description
             }
         }
 
-        if(character.availableComicsCount > 0) {
+        if (character.availableComicsCount > 0) {
             tvMostExpensiveHQ.isEnabled = true
             tvMostExpensiveHQ.text = getString(R.string.see_most_expensive_hq)
             tvMostExpensiveHQ.setOnClickListener { openCharacterDetails(character) }

@@ -46,7 +46,7 @@ fun showPrice(view: TextView, comic: Comic?) {
     comic?.let {
         view.visibility = View.VISIBLE
         view.text = "${comic.price} $"
-    } ?: run{
+    } ?: run {
         view.visibility = View.GONE
     }
 }

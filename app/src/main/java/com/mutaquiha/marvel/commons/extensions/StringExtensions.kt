@@ -2,7 +2,6 @@ package com.mutaquiha.marvel.commons.extensions
 
 import java.security.NoSuchAlgorithmException
 
-
 fun String.md5(): String {
     try {
         val digest = java.security.MessageDigest.getInstance("MD5")
@@ -16,7 +15,6 @@ fun String.md5(): String {
             hexString.append(h)
         }
         return hexString.toString()
-
     } catch (e: NoSuchAlgorithmException) {
         e.printStackTrace()
     }
