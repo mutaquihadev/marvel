@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="comic"
             type="com.mutaquiha.marvel.domain.entity.Comic" />
@@ -23,21 +24,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:showProgressIfNull="@{comic}" />
 
         <ImageView
             android:id="@+id/imComicThumbnail"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@string/con_des_hq_cover"
             android:visibility="gone"
+            app:comicImage="@{comic}"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher"
-            tools:visibility="visible"
-            android:contentDescription="@string/con_des_hq_cover" />
+            tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
@@ -56,6 +59,7 @@
             android:padding="8dp"
             android:textSize="16sp"
             android:visibility="gone"
+            app:description="@{comic}"
             app:layout_constraintBottom_toTopOf="@+id/tvPrice"
             app:layout_constraintEnd_toEndOf="@+id/tvPrice"
             app:layout_constraintStart_toStartOf="@+id/tvPrice"
@@ -76,11 +80,11 @@
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:visibility="gone"
-            android:text="@{Double.toString(comic.price)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imComicThumbnail"
+            app:price="@{comic}"
             tools:text="2.99 $"
             tools:visibility="visible" />
 

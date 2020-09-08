@@ -5,6 +5,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import com.mutaquiha.marvel.commons.ImageSize
 import com.mutaquiha.marvel.commons.extensions.getImageUrl
 import com.mutaquiha.marvel.commons.extensions.load
@@ -24,21 +25,6 @@ class MostExpensiveHQActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        initObservers()
-    }
-
-    private fun initObservers() {
-        viewModel.mostExpensiveComic.observe(this, {
-
-            binding.comic = it
-
-            binding.progressBar.visibility = View.GONE
-            binding.tvPrice.visibility = View.VISIBLE
-            binding.tvDescription.isVisible = it.description != null
-            binding.tvDescription.text = it.description
-            binding.tvPrice.text = "${it.price} $"
-            binding.imComicThumbnail.visibility = View.VISIBLE
-            binding.imComicThumbnail.load(it.getImageUrl(ImageSize.LANDSCAPE_LARGE))
-        })
+        viewModel.mostExpensiveComic.observe(this, { binding.comic = it })
     }
 }
