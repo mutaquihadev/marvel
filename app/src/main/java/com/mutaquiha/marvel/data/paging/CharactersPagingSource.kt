@@ -33,7 +33,6 @@ constructor(private val api: MarvelApi, private val mapper: CharactersMapper) :
         }
     }
 
-
     companion object {
         private const val NETWORK_PAGE_SIZE = 20
     }

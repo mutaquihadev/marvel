@@ -11,7 +11,7 @@ class ComicsMapper : BaseMapper<DTOComic, Comic>() {
 
         return Comic(
             entity.title,
-            price?: 0.0,
+            price ?: 0.0,
             entity.description,
             Thumbnail(entity.thumbnail.path, entity.thumbnail.extension)
         )

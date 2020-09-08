@@ -60,7 +60,6 @@ class ComicsMapperTest {
             ),
         )
 
-
         private fun getPrices(): List<Price> {
             val listOfPrices = mutableListOf<Price>()
 
@@ -80,17 +79,17 @@ class ComicsMapperTest {
 
             return listOfPrices
         }
-    }
 
-    private val fakeDTOComicWithEmptyPrices: DTOComic = DTOComic(
-        id = 16890,
-        digitalId = 12188,
-        title = "Amazing Spider-Man Annual (1964) #16",
-        description = "INFESTED ENDS WITH SPIDEY AT THE CROSSROADS! As Spider-Man, he is a member of the FF and TWO different Avengers teams.  As Peter Parker, he works all hours on his dream job at Horizon Labs.  That doesn't leave him with much time for anything or anyone else.  This is where he pays the price. In this landmark issue, one of Peter's greatest sins-- comes back to haunt him. And the life of someone dear to him hangs in the balance. Plus: With New York's Infestation complete, the run-up to Spider-Island is over. Prepare for hell to break loose",
-        DTOThumbnail(
-            path = "http://i.annihil.us/u/prod/marvel/i/mg/b/03/56d72043e5926",
-            extension = "jpg"
-        ),
-        prices = emptyList(),
-    )
+        private val fakeDTOComicWithEmptyPrices: DTOComic = DTOComic(
+            id = 16890,
+            digitalId = 12188,
+            title = "Amazing Spider-Man Annual (1964) #16",
+            description = "INFESTED ENDS WITH SPIDEY AT THE CROSSROADS! As Spider-Man, he is a member of the FF and TWO different Avengers teams.  As Peter Parker, he works all hours on his dream job at Horizon Labs.  That doesn't leave him with much time for anything or anyone else.  This is where he pays the price. In this landmark issue, one of Peter's greatest sins-- comes back to haunt him. And the life of someone dear to him hangs in the balance. Plus: With New York's Infestation complete, the run-up to Spider-Island is over. Prepare for hell to break loose",
+            DTOThumbnail(
+                path = "http://i.annihil.us/u/prod/marvel/i/mg/b/03/56d72043e5926",
+                extension = "jpg"
+            ),
+            prices = emptyList(),
+        )
+    }
 }

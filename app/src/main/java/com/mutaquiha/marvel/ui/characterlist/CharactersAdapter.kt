@@ -14,7 +14,6 @@ import com.mutaquiha.marvel.commons.extensions.getImageUrl
 import com.mutaquiha.marvel.commons.extensions.load
 import com.mutaquiha.marvel.domain.entity.Character
 
-
 class CharactersAdapter(private val clickListener: CharacterClickListener) :
     PagingDataAdapter<Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
@@ -35,7 +34,7 @@ class CharactersAdapter(private val clickListener: CharacterClickListener) :
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val character = getItem(position)
         character?.let {
-            holder.itemView.setOnClickListener {clickListener.onClick(character)}
+            holder.itemView.setOnClickListener { clickListener.onClick(character) }
             holder.name.text = character.name
             holder.imageView.load(character.getImageUrl())
             holder.availableComicsCount.text = "${character.availableComicsCount}"
