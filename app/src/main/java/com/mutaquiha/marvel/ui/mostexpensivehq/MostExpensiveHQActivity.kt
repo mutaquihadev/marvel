@@ -29,6 +29,9 @@ class MostExpensiveHQActivity : AppCompatActivity() {
 
     private fun initObservers() {
         viewModel.mostExpensiveComic.observe(this, {
+
+            binding.comic = it
+
             binding.progressBar.visibility = View.GONE
             binding.tvPrice.visibility = View.VISIBLE
             binding.tvDescription.isVisible = it.description != null
