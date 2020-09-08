@@ -18,5 +18,7 @@ object Constants {
     const val PRIVATE_KEY = "YOUR_PRIVATE_KEY"
 
     const val KEY_CHARACTER = "KEY_CHARACTER"
+
+    const val PAGE_SIZE = 20
 }
 
