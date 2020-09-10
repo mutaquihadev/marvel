@@ -2,14 +2,15 @@ package com.mutaquiha.marvel.data.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.mutaquiha.marvel.commons.Constants.API_KEY
-import com.mutaquiha.marvel.commons.Constants.BASE_URL
-import com.mutaquiha.marvel.commons.Constants.PARAMETER_API_KEY
-import com.mutaquiha.marvel.commons.Constants.PARAMETER_HASH
-import com.mutaquiha.marvel.commons.Constants.PARAMETER_TIMESTAMP
-import com.mutaquiha.marvel.commons.Constants.PRIVATE_KEY
-import com.mutaquiha.marvel.commons.Constants.TIMEZONE
-import com.mutaquiha.marvel.commons.extensions.md5
+import com.mutaquiha.marvel.app.core.Constants.API_KEY
+import com.mutaquiha.marvel.app.core.Constants.BASE_URL
+import com.mutaquiha.marvel.app.core.Constants.PARAMETER_API_KEY
+import com.mutaquiha.marvel.app.core.Constants.PARAMETER_HASH
+import com.mutaquiha.marvel.app.core.Constants.PARAMETER_TIMESTAMP
+import com.mutaquiha.marvel.app.core.Constants.PRIVATE_KEY
+import com.mutaquiha.marvel.app.core.Constants.TIMEZONE
+import com.mutaquiha.marvel.app.core.extensions.md5
+
 import com.mutaquiha.marvel.data.MarvelApi
 import dagger.Module
 import dagger.Provides

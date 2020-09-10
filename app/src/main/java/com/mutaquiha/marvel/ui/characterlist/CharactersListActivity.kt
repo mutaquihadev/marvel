@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.mutaquiha.marvel.commons.Constants.KEY_CHARACTER
+import com.mutaquiha.marvel.app.core.Constants.KEY_CHARACTER
 import com.mutaquiha.marvel.databinding.ActivityCharactersListBinding
 import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.ui.CharacterDetailsActivity

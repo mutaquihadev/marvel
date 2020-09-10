@@ -1,6 +1,6 @@
 package com.mutaquiha.marvel.domain.entity
 
-import com.mutaquiha.marvel.commons.Constants
+import com.mutaquiha.marvel.app.core.Constants
 
 class FindMostExpensiveHQHelper {
 

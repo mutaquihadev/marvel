@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.commons
+package com.mutaquiha.marvel.app.core
 
 object ImageSize {
     const val STANDARD_MEDIUM = "standard_medium"
@@ -14,8 +14,8 @@ object Constants {
     const val PARAMETER_TIMESTAMP = "ts"
     const val PARAMETER_HASH = "hash"
 
-    const val API_KEY = "YOUR_API_KEY"
-    const val PRIVATE_KEY = "YOUR_PRIVATE_KEY"
+    const val API_KEY = "476ac93e44df7e7bd1e8d7dea3cf9e9c"
+    const val PRIVATE_KEY = "cc0742cb7ca41a39d6006e194537ef800ba6d66d"
 
     const val KEY_CHARACTER = "KEY_CHARACTER"
 

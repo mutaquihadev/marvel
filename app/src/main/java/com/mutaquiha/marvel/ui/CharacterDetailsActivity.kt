@@ -8,10 +8,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.mutaquiha.marvel.R
-import com.mutaquiha.marvel.commons.Constants.KEY_CHARACTER
-import com.mutaquiha.marvel.commons.ImageSize
-import com.mutaquiha.marvel.commons.extensions.getImageUrl
-import com.mutaquiha.marvel.commons.extensions.load
+import com.mutaquiha.marvel.app.core.Constants.KEY_CHARACTER
+import com.mutaquiha.marvel.app.core.ImageSize
+import com.mutaquiha.marvel.app.core.extensions.load
+import com.mutaquiha.marvel.data.extensions.getImageUrl
 import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.ui.mostexpensivehq.MostExpensiveHQActivity
 import kotlinx.android.synthetic.main.activity_character_details.*

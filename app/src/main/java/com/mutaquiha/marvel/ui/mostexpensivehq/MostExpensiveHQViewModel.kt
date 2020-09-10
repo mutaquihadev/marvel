@@ -3,8 +3,8 @@ package com.mutaquiha.marvel.ui.mostexpensivehq
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.mutaquiha.marvel.commons.Constants
-import com.mutaquiha.marvel.commons.Constants.PAGE_SIZE
+import com.mutaquiha.marvel.app.core.Constants
+import com.mutaquiha.marvel.app.core.Constants.PAGE_SIZE
 import com.mutaquiha.marvel.data.repositories.ComicsRepository
 import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.domain.entity.Comic

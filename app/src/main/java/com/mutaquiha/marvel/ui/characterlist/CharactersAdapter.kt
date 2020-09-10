@@ -9,9 +9,9 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
-import com.mutaquiha.marvel.commons.extensions.getImageUrl
 
-import com.mutaquiha.marvel.commons.extensions.load
+import com.mutaquiha.marvel.app.core.extensions.load
+import com.mutaquiha.marvel.data.extensions.getImageUrl
 import com.mutaquiha.marvel.domain.entity.Character
 
 class CharactersAdapter(private val clickListener: CharacterClickListener) :

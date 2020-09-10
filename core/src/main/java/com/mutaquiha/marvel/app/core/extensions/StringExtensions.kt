@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.commons.extensions
+package com.mutaquiha.marvel.app.core.extensions
 
 import java.security.NoSuchAlgorithmException
 
