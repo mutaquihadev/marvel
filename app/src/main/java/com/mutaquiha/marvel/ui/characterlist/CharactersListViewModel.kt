@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.mutaquiha.marvel.data.repositories.CharacterRepository
+import com.mutaquiha.domain.entity.Character
 
 import kotlinx.coroutines.flow.Flow
 
@@ -15,7 +16,7 @@ constructor(
     private val repository: CharacterRepository
 ) : ViewModel() {
 
-    fun getCharacters(): Flow<PagingData<com.mutaquiha.domain.entity.Character>> {
+    fun getCharacters(): Flow<PagingData<Character>> {
         return repository.getCharacters().cachedIn(viewModelScope)
     }
 }

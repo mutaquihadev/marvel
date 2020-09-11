@@ -34,12 +34,12 @@ class CharacterDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_details)
 
-        val character = intent.getSerializableExtra(KEY_CHARACTER) as com.mutaquiha.domain.entity.Character?
+        val character = intent.getSerializableExtra(KEY_CHARACTER) as Character?
 
         character?.let { handleSuccess(it) } ?: run { handleError() }
     }
 
-    private fun handleSuccess(character: com.mutaquiha.domain.entity.Character) {
+    private fun handleSuccess(character: Character) {
         imCharacter.load(character.getImageUrl(ImageSize.LANDSCAPE_LARGE))
         tvName.text = character.name
         character.description.isNotEmpty().let { isNotEmpty ->
