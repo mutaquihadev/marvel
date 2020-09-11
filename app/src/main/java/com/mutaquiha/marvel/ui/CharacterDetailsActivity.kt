@@ -7,12 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.mutaquiha.domain.entity.Character
 import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.app.core.Constants.KEY_CHARACTER
 import com.mutaquiha.marvel.app.core.ImageSize
 import com.mutaquiha.marvel.app.core.extensions.load
 import com.mutaquiha.marvel.data.extensions.getImageUrl
-import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.ui.mostexpensivehq.MostExpensiveHQActivity
 import kotlinx.android.synthetic.main.activity_character_details.*
 
@@ -34,12 +34,12 @@ class CharacterDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_details)
 
-        val character = intent.getSerializableExtra(KEY_CHARACTER) as Character?
+        val character = intent.getSerializableExtra(KEY_CHARACTER) as com.mutaquiha.domain.entity.Character?
 
         character?.let { handleSuccess(it) } ?: run { handleError() }
     }
 
-    private fun handleSuccess(character: Character) {
+    private fun handleSuccess(character: com.mutaquiha.domain.entity.Character) {
         imCharacter.load(character.getImageUrl(ImageSize.LANDSCAPE_LARGE))
         tvName.text = character.name
         character.description.isNotEmpty().let { isNotEmpty ->

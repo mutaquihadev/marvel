@@ -12,10 +12,10 @@ import com.mutaquiha.marvel.R
 
 import com.mutaquiha.marvel.app.core.extensions.load
 import com.mutaquiha.marvel.data.extensions.getImageUrl
-import com.mutaquiha.marvel.domain.entity.Character
+
 
 class CharactersAdapter(private val clickListener: CharacterClickListener) :
-    PagingDataAdapter<Character, CharactersAdapter.CharacterHolder>(
+    PagingDataAdapter<com.mutaquiha.domain.entity.Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
     ) {
 
@@ -43,22 +43,22 @@ class CharactersAdapter(private val clickListener: CharacterClickListener) :
 }
 
 class CharacterDiffCallback :
-    DiffUtil.ItemCallback<Character>() {
+    DiffUtil.ItemCallback<com.mutaquiha.domain.entity.Character>() {
     override fun areItemsTheSame(
-        old: Character,
-        aNew: Character
+        old: com.mutaquiha.domain.entity.Character,
+        aNew: com.mutaquiha.domain.entity.Character
     ): Boolean {
         return old.id == aNew.id
     }
 
     override fun areContentsTheSame(
-        old: Character,
-        aNew: Character
+        old: com.mutaquiha.domain.entity.Character,
+        aNew: com.mutaquiha.domain.entity.Character
     ): Boolean {
         return old == aNew
     }
 }
 
-class CharacterClickListener(val clickListener: (character: Character) -> Unit) {
-    fun onClick(character: Character) = clickListener(character)
+class CharacterClickListener(val clickListener: (character: com.mutaquiha.domain.entity.Character) -> Unit) {
+    fun onClick(character: com.mutaquiha.domain.entity.Character) = clickListener(character)
 }

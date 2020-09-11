@@ -3,10 +3,10 @@ package com.mutaquiha.marvel.data.repositories
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.mutaquiha.domain.entity.Character
 import com.mutaquiha.marvel.data.MarvelApi
 import com.mutaquiha.marvel.data.mapper.CharactersMapper
 import com.mutaquiha.marvel.data.paging.CharactersPagingSource
-import com.mutaquiha.marvel.domain.entity.Character
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

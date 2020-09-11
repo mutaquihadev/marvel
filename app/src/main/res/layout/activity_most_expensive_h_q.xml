@@ -7,7 +7,7 @@
 
         <variable
             name="comic"
-            type="com.mutaquiha.marvel.domain.entity.Comic" />
+            type="com.mutaquiha.domain.entity.Comic" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

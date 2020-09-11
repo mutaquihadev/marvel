@@ -5,10 +5,10 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.mutaquiha.domain.entity.Comic
 import com.mutaquiha.marvel.app.core.ImageSize
 import com.mutaquiha.marvel.app.core.extensions.load
 import com.mutaquiha.marvel.data.extensions.getImageUrl
-import com.mutaquiha.marvel.domain.entity.Comic
 
 @BindingAdapter("comicImage")
 fun setImageView(view: ImageView, comic: Comic?) {

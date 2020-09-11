@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.domain.entity
+package com.mutaquiha.domain.entity
 
 data class Comic(
     val title: String,

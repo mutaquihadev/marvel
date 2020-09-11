@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import com.mutaquiha.marvel.data.MarvelApi
 import com.mutaquiha.marvel.data.dto.characters.asDomainModel
 import com.mutaquiha.marvel.data.mapper.CharactersMapper
-import com.mutaquiha.marvel.domain.entity.Character
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -14,8 +13,8 @@ private const val MARVEL_API_STARTING_PAGE_INDEX = 0
 class CharactersPagingSource
 @Inject
 constructor(private val api: MarvelApi, private val mapper: CharactersMapper) :
-    PagingSource<Int, Character>() {
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
+    PagingSource<Int, com.mutaquiha.domain.entity.Character>() {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, com.mutaquiha.domain.entity.Character> {
         val position = params.key ?: MARVEL_API_STARTING_PAGE_INDEX
         val offset = position * NETWORK_PAGE_SIZE
 

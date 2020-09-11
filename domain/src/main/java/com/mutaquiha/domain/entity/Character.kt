@@ -1,5 +1,6 @@
-package com.mutaquiha.marvel.domain.entity
+package com.mutaquiha.domain.entity
 
+import com.mutaquiha.domain.entity.Thumbnail
 import java.io.Serializable
 
 data class Character(

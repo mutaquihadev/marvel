@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.mutaquiha.marvel.app.core.Constants.KEY_CHARACTER
 import com.mutaquiha.marvel.databinding.ActivityCharactersListBinding
-import com.mutaquiha.marvel.domain.entity.Character
 import com.mutaquiha.marvel.ui.CharacterDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -50,7 +49,7 @@ class CharactersListActivity : AppCompatActivity() {
         }
     }
 
-    private fun openCharacterDetails(character: Character) {
+    private fun openCharacterDetails(character: com.mutaquiha.domain.entity.Character) {
         val intent = Intent(this, CharacterDetailsActivity::class.java)
         intent.putExtra(KEY_CHARACTER, character)
         startActivity(intent)
