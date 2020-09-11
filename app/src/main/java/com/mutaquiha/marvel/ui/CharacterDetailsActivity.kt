@@ -12,7 +12,7 @@ import com.mutaquiha.marvel.R
 import com.mutaquiha.marvel.app.core.Constants.KEY_CHARACTER
 import com.mutaquiha.marvel.app.core.ImageSize
 import com.mutaquiha.marvel.app.core.extensions.load
-import com.mutaquiha.marvel.data.extensions.getImageUrl
+import com.mutaquiha.domain.getImageUrl
 import com.mutaquiha.marvel.ui.mostexpensivehq.MostExpensiveHQActivity
 import kotlinx.android.synthetic.main.activity_character_details.*
 

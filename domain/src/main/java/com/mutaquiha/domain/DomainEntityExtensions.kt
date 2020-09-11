@@ -1,4 +1,4 @@
-package com.mutaquiha.marvel.data.extensions
+package com.mutaquiha.domain
 
 import com.mutaquiha.domain.entity.Character
 import com.mutaquiha.domain.entity.Comic

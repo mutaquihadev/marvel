@@ -8,7 +8,7 @@ import androidx.databinding.BindingAdapter
 import com.mutaquiha.domain.entity.Comic
 import com.mutaquiha.marvel.app.core.ImageSize
 import com.mutaquiha.marvel.app.core.extensions.load
-import com.mutaquiha.marvel.data.extensions.getImageUrl
+import com.mutaquiha.domain.getImageUrl
 
 @BindingAdapter("comicImage")
 fun setImageView(view: ImageView, comic: Comic?) {
