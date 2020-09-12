@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.mutaquiha.marvel.data.repositories.CharacterRepository
+import com.mutaquiha.data.repositories.CharacterRepository
 import com.mutaquiha.domain.entity.Character
-
 import kotlinx.coroutines.flow.Flow
 
 class CharactersListViewModel

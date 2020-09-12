@@ -1,11 +1,12 @@
 package com.mutaquiha.domain.entity
 
-import android.nfc.tech.MifareUltralight.PAGE_SIZE
+const val PAGE_SIZE = 20
 
 class FindMostExpensiveHQHelper {
 
     companion object {
         fun getNumberOfPages(availableComicsCount: Int): Int {
+
             val reminder = availableComicsCount % PAGE_SIZE
             val pages = availableComicsCount / PAGE_SIZE
             val additionalPage = if (reminder > 0) {

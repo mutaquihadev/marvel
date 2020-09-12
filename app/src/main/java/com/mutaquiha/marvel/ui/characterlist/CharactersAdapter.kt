@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mutaquiha.marvel.R
 
 import com.mutaquiha.marvel.app.core.extensions.load
-import com.mutaquiha.domain.getImageUrl
+import com.mutaquiha.domain.extensions.getImageUrl
 
 
 class CharactersAdapter(private val clickListener: CharacterClickListener) :

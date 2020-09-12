@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -22,10 +23,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation project(':core')
+    implementation project(':domain')
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -33,4 +42,49 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //kotlin coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+
+//    ext {
+//        kotlin_version = "1.4.0"
+//        retrofit_version = '2.9.0'
+//        okhttp_version = '4.7.2'
+//        coroutines_version = '1.3.7'
+//        hilt_version = '2.28-alpha'
+//        lifecycle_version = '2.2.0'
+//        androidx_hilt_version = '1.0.0-alpha02'
+//        glide_version = '4.11.0'
+//        pagingVersion = '3.0.0-alpha06'
+//        materialVersion = '1.2.1'
+//    }
+
+    //Retrofit
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    def okhttp_version = '4.7.2'
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    //Hilt
+    def hilt_version = '2.28-alpha'
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // architecture components
+    def lifecycle_version = '2.2.0'
+    implementation 'androidx.fragment:fragment-ktx:1.2.5'
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+
+    def androidx_hilt_version = '1.0.0-alpha02'
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$androidx_hilt_version"
+
+    def pagingVersion = '3.0.0-alpha06'
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+
+    kapt "androidx.hilt:hilt-compiler:$androidx_hilt_version"
 }

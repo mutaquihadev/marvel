@@ -7,14 +7,14 @@ import com.mutaquiha.domain.entity.Comic
 import com.mutaquiha.domain.entity.FindMostExpensiveHQHelper
 import com.mutaquiha.marvel.app.core.Constants
 import com.mutaquiha.marvel.app.core.Constants.PAGE_SIZE
-import com.mutaquiha.marvel.data.repositories.ComicsRepository
+import com.mutaquiha.data.repositories.ComicsRepository
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import com.mutaquiha.domain.entity.Character
 
 class MostExpensiveHQViewModel @ViewModelInject constructor(
-    private val repository: ComicsRepository,
+    private val repository: com.mutaquiha.data.repositories.ComicsRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel(), LifecycleObserver {
 
