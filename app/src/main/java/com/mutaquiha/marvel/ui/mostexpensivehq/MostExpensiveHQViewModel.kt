@@ -3,18 +3,18 @@ package com.mutaquiha.marvel.ui.mostexpensivehq
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import com.mutaquiha.data.repositories.ComicsRepository
 import com.mutaquiha.domain.entity.Comic
 import com.mutaquiha.domain.entity.FindMostExpensiveHQHelper
 import com.mutaquiha.marvel.app.core.Constants
 import com.mutaquiha.marvel.app.core.Constants.PAGE_SIZE
-import com.mutaquiha.data.repositories.ComicsRepository
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import com.mutaquiha.domain.entity.Character
 
 class MostExpensiveHQViewModel @ViewModelInject constructor(
-    private val repository: com.mutaquiha.data.repositories.ComicsRepository,
+    private val repository: ComicsRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel(), LifecycleObserver {
 

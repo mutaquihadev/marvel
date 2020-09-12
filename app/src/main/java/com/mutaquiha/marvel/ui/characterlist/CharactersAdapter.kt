@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.mutaquiha.domain.entity.Character
 import com.mutaquiha.marvel.R
 
 import com.mutaquiha.marvel.app.core.extensions.load
@@ -15,7 +16,7 @@ import com.mutaquiha.domain.extensions.getImageUrl
 
 
 class CharactersAdapter(private val clickListener: CharacterClickListener) :
-    PagingDataAdapter<com.mutaquiha.domain.entity.Character, CharactersAdapter.CharacterHolder>(
+    PagingDataAdapter<Character, CharactersAdapter.CharacterHolder>(
         CharacterDiffCallback()
     ) {
 
@@ -43,22 +44,22 @@ class CharactersAdapter(private val clickListener: CharacterClickListener) :
 }
 
 class CharacterDiffCallback :
-    DiffUtil.ItemCallback<com.mutaquiha.domain.entity.Character>() {
+    DiffUtil.ItemCallback<Character>() {
     override fun areItemsTheSame(
-        old: com.mutaquiha.domain.entity.Character,
-        aNew: com.mutaquiha.domain.entity.Character
+        old: Character,
+        aNew: Character
     ): Boolean {
         return old.id == aNew.id
     }
 
     override fun areContentsTheSame(
-        old: com.mutaquiha.domain.entity.Character,
-        aNew: com.mutaquiha.domain.entity.Character
+        old: Character,
+        aNew: Character
     ): Boolean {
         return old == aNew
     }
 }
 
-class CharacterClickListener(val clickListener: (character: com.mutaquiha.domain.entity.Character) -> Unit) {
-    fun onClick(character: com.mutaquiha.domain.entity.Character) = clickListener(character)
+class CharacterClickListener(val clickListener: (character: Character) -> Unit) {
+    fun onClick(character: Character) = clickListener(character)
 }
